@@ -21,23 +21,14 @@ import spring.service.PriceIncreaseValidator;
  *
  */
 @Controller
-@RequestMapping("/priceincrease.htm") 
+@RequestMapping("/priceincrease") 
 public class PriceIncreaseFormController {
 	
 	protected final Log logger = LogFactory.getLog(getClass());
 	
 	private ProductManager productManager;
-	
-	@Autowired
-	PriceIncreaseValidator priceIncreaseValidator;
-	
-	//Set a form validator
-		@InitBinder
-		protected void initBinder(WebDataBinder binder) {
-			binder.setValidator(priceIncreaseValidator);
-		}
 		
-		@RequestMapping(value="/priceIncrease",method = RequestMethod.POST)  
+		@RequestMapping(method = RequestMethod.POST)  
 		public ModelAndView show(@ModelAttribute("unit") Unit unit){
 			int increase = unit.getIncrease();
 			logger.info("Increasing prices by " + increase + "%.");
