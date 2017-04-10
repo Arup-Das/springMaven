@@ -38,7 +38,9 @@
         <property name="description" value="Chair"/>
         <property name="price" value="22.79"/>
     </bean>
-
+    
+   <bean id = "priceIncreaseValidator" class = "spring.service.PriceIncreaseValidator"></bean>
+	
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
