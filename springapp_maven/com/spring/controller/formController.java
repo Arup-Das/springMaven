@@ -30,9 +30,8 @@ public class formController {
 		binder.setValidator(validator);
 	}
 
-	@ModelAttribute("priceincrease")
-	public PriceIncrease createEmployeeModel() {
-		// ModelAttribute value should be same as used in the empSave.jsp
+	@ModelAttribute("priceIncrease")
+	public PriceIncrease createPriceModel() {
 		return new PriceIncrease();
 	}
 
@@ -41,8 +40,8 @@ public class formController {
 			@ModelAttribute("employee") @Validated PriceIncrease priceincrease,
 			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			System.out.println("Returning empSave.jsp page");
-			return "empSave";
+			System.out.println("Returning priceincrease.jsp page");
+			return "priceincrease";
 		}
-		return "empSaveSuccess";
+		return "priceincreaseSuccess";
 	}}

@@ -10,7 +10,7 @@
     </c:forEach>
     
     <br>
-    <a href="<c:url value="priceincrease"/>">Increase Prices</a>
+    <a href="<c:url value="priceForm"/>">Increase Prices</a>
     <br>
   </body>
 </html>
