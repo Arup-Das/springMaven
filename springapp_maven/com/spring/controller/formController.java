@@ -30,14 +30,14 @@ public class formController {
 		binder.setValidator(validator);
 	}
 
-	@ModelAttribute("priceIncrease")
+	@ModelAttribute("price")
 	public PriceIncrease createPriceModel() {
 		return new PriceIncrease();
 	}
 
 	@RequestMapping(value = "/priceincrease", method = RequestMethod.POST)
 	public String saveEmployeeAction(
-			@ModelAttribute("employee") @Validated PriceIncrease priceincrease,
+			@ModelAttribute("price") @Validated PriceIncrease priceincrease,
 			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			System.out.println("Returning priceincrease.jsp page");
