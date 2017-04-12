@@ -2,10 +2,12 @@ package com.java.spring.bean;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Person {
 	@Size(min=2,max=50)
@@ -14,9 +16,13 @@ public class Person {
 	private String email;
 	@Phone
 	private String phone;
-	private String gender;
-	private String address;
+	@NotNull
+	private Gender gender;
+	@DateTimeFormat(pattern = "MM/dd/yy")
 	private Date birthday;
+	public enum Gender {
+		MALE, FEMALE
+	}
 	
 	public String getName() {
 		return name;
@@ -36,21 +42,17 @@ public class Person {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getGender() {
-		return gender;
-	}public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public Date getBirthday() {
 		return birthday;
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 }
