@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-<springForm:form method="POST" modelAttribute="person" action = "personsave">
+<springForm:form method="POST" modelAttribute="customer" action = "personsave">
 	<table>
 		<tr>
 			<td>Name : </td>
