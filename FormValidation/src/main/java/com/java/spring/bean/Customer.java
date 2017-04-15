@@ -3,13 +3,14 @@ package com.java.spring.bean;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Person {
+public class Customer {
 	@Size(min=2,max=50)
 	private String name;
 	@NotEmpty @Email
@@ -19,6 +20,7 @@ public class Person {
 	@NotNull
 	private Gender gender;
 	@DateTimeFormat(pattern = "MM/dd/yy")
+	@NotNull @Past
 	private Date birthday;
 	public enum Gender {
 		MALE, FEMALE
