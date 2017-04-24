@@ -11,6 +11,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Customer {
+	
+	private String id;
+	
 	@Size(min=2,max=50)
 	private String name;
 	@NotEmpty @Email
@@ -56,5 +59,11 @@ public class Customer {
 	}
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }
