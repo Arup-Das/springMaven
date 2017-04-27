@@ -2,17 +2,23 @@ package com.spring.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
+@Table(name="person")
 public class Person {
 	
 	@Id
@@ -20,16 +26,27 @@ public class Person {
 	private int id;
 	
 	@Size(min=2,max=50)
+	 @Column(name = "name", nullable = false)
 	private String name;
 	@NotEmpty @Email
+	@Column(name = "email")
 	private String email;
+	
 	@Phone
+	@Column(name = "phone")
 	private String phone;
+	
 	@NotNull
+	@Column(name = "gender", nullable = false)
 	private Gender gender;
+	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull @Past
+	@Column(name = "joiningDate", nullable = false)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private Date birthday;
+	
+	
 	public enum Gender {
 		MALE, FEMALE
 	}
