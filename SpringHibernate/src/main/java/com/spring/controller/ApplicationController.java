@@ -21,7 +21,6 @@ import com.spring.service.EmployeeService;
 
 @Controller
 @RequestMapping("/")
-@ComponentScan(basePackages = "com.spring")
 public class ApplicationController {
 	
 	
@@ -34,8 +33,8 @@ public class ApplicationController {
      // This method will list all existing employees.    
     @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
     public String listEmployees(ModelMap model) {
- 
-        List employees = service.findAllEmployees();
+        List<Employee> employees = service.findAllEmployees();
+        System.out.println("employees  :  "+employees.size());
         model.addAttribute("employees", employees);
         return "allemployees";
     }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.spring.model.Employee;
 
 @Repository("employeeDao")
-public class EmployeeDAOImpl extends AbstractDAO<Employee,Integer> implements EmployeeDAO {
+public class EmployeeDaoImpl extends AbstractDao<Integer,Employee> implements EmployeeDao {
 
 	@Override
 	public void deleteEmployeeBySsn(String ssn) {
@@ -26,15 +26,14 @@ public class EmployeeDAOImpl extends AbstractDAO<Employee,Integer> implements Em
 
 	@Override
 	public void saveEmployee(Employee employee) {
-		
 		persist(employee);
 	}
 
-	@Override
-	public List findAllEmployees() {
-		Criteria criteria = createEntityCriteria();
-        return (List) criteria.list();
-	}
+	@SuppressWarnings("unchecked")
+    public List<Employee> findAllEmployees() {
+        Criteria criteria = createEntityCriteria();
+        return (List<Employee>) criteria.list();
+    }
 
 	@Override
 	public Employee findEmployeeBySsn(String ssn) {

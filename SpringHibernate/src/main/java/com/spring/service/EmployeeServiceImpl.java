@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.dao.EmployeeDAO;
+import com.spring.dao.EmployeeDao;
 import com.spring.model.Employee;
 
 @Service("employeeService")
@@ -14,7 +14,7 @@ import com.spring.model.Employee;
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired
-    private EmployeeDAO dao;
+    private EmployeeDao dao;
 
 	@Override
 	public void deleteEmployeeBySsn(String ssn) {
@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List findAllEmployees() {
+	public List<Employee> findAllEmployees() {
 		return dao.findAllEmployees();
 	}
 

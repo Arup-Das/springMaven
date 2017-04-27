@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.spring.model.Employee;
 
-public interface EmployeeDAO {
+public interface EmployeeDao {
 
 	Employee findById(int id);
 	 
@@ -12,7 +12,7 @@ public interface EmployeeDAO {
      
     void deleteEmployeeBySsn(String ssn);
      
-    List findAllEmployees();
+    List<Employee> findAllEmployees();
  
     Employee findEmployeeBySsn(String ssn);
 }

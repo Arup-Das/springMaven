@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name="employee")
 public class Employee {
 	
 	@Id
@@ -27,22 +27,22 @@ public class Employee {
     private int id;
  
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
  
     @NotNull
     @DateTimeFormat(pattern="dd/MM/yyyy") 
-    @Column(name = "JOINING_DATE", nullable = false)
+    @Column(name = "joiningDate", nullable = false)
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private LocalDate joiningDate;
  
     @NotNull
     @Digits(integer=8, fraction=2)
-    @Column(name = "SALARY", nullable = false)
+    @Column(name = "salary", nullable = false)
     private BigDecimal salary;
      
     @NotEmpty
-    @Column(name = "SSN", unique=true, nullable = false)
+    @Column(name = "ssn", unique=true, nullable = false)
     private String ssn;
  
     public int getId() {
