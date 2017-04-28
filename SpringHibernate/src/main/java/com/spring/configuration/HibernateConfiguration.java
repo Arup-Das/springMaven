@@ -20,7 +20,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.spring.configuration" })
+@ComponentScan({ "com.spring" })
 @PropertySource(value = { "classpath:application.properties" })
 
 public class HibernateConfiguration {

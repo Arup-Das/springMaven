@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.spring.model.Person;
 import com.spring.model.Employee;
 import com.spring.service.EmployeeService;
+import com.spring.service.PersonService;
 
 @Controller
 @RequestMapping("/")
@@ -27,6 +28,9 @@ public class ApplicationController {
 	
     @Autowired
     EmployeeService service;
+    
+    @Autowired
+    PersonService personService;
      
     @Autowired
     MessageSource messageSource;

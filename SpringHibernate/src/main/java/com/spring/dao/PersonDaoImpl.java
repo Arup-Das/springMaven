@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import com.spring.model.Person;
 
+@Repository
 public class PersonDaoImpl extends AbstractDao<Integer, Person> implements PersonDao {
 
 	@Override

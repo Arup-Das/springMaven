@@ -26,7 +26,7 @@ public class Person {
 	private int id;
 	
 	@Size(min=2,max=50)
-	 @Column(name = "name", nullable = false)
+	@Column(name = "name", nullable = false)
 	private String name;
 	@NotEmpty @Email
 	@Column(name = "email")
@@ -42,7 +42,7 @@ public class Person {
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull @Past
-	@Column(name = "joiningDate", nullable = false)
+	@Column(name = "birthday", nullable = false)
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private Date birthday;
 	
