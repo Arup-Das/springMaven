@@ -29,6 +29,7 @@
             <td>${person.phone}</td>
             <td>${person.gender}</td>
             <td>${person.birthday}</td>
+            <td><a href="<c:url value='/edit-${person.id}-person' />"><img alt="edit" src="${pageContext.request.contextPath}/images/edit.png"></a></td>
             </tr>
         </c:forEach>
     </table>
