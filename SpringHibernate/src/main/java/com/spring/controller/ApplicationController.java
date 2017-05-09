@@ -61,13 +61,7 @@ public class ApplicationController {
  
         if (result.hasErrors()) {
             return "registration";
-        }
-         
-         // Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
-         // and applying it on field [ssn] of Model class [Employee].Below mentioned peace of code [if block] is 
-          // to demonstrate that you can fill custom errors outside the validation
-         // framework as well while still using internationalized messages.
-          
+        }  
       
         if(!service.isEmployeeSsnUnique(employee.getId(), employee.getSsn())){
             FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getSsn()}, Locale.getDefault()));
@@ -136,7 +130,16 @@ public class ApplicationController {
 			System.out.println("Returning priceincrease.jsp page");
 			return "person_form";
 		}
+		personService.savePerson(person);
 		return "success";
 	}
+	 // This method will list all existing employees.    
+    @RequestMapping(value = { "/listPerson" }, method = RequestMethod.GET)
+    public String listPersons(ModelMap model) {
+        List<Person> persons = personService.findAllPerson();
+        System.out.println("persons  :  "+ persons.size());
+        model.addAttribute("persons", persons);
+        return "allperson";
+    }
 
 }

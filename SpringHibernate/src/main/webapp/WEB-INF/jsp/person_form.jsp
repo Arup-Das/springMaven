@@ -40,15 +40,15 @@
 			<td>
 				<springForm:select path="gender">
 					<springForm:option value="" label="Select Gender"></springForm:option>
-					<springForm:option value="MALE" label="Male"></springForm:option>
-					<springForm:option value="FEMALE" label="Female"></springForm:option>
+					<springForm:option value="Male" label="Male"></springForm:option>
+					<springForm:option value="Female" label="Female"></springForm:option>
 				</springForm:select>
 			</td>
 			<td><springForm:errors path="gender" cssClass="error"></springForm:errors></td>
 		</tr>
 		<tr>
 			<td>Birthday : </td>
-			<td><springForm:input path="birthday" placeholder="MM/dd/yyyy"/></td>
+			<td><springForm:input path="birthday" placeholder="dd/MM/yyyy"/></td>
 			<td><springForm:errors path="birthday" cssClass="error"></springForm:errors></td>
 		</tr>
 		<tr><td colspan="3"><input type="submit" value="Save Person"></td></tr>

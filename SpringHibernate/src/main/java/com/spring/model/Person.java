@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -44,11 +45,11 @@ public class Person {
 	@NotNull @Past
 	@Column(name = "birthday", nullable = false)
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-	private Date birthday;
+	private LocalDate birthday;
 	
 	
 	public enum Gender {
-		MALE, FEMALE
+		Male, Female
 	}
 	
 	public String getName() {
@@ -70,10 +71,10 @@ public class Person {
 		this.phone = phone;
 	}
 	
-	public Date getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 	public Gender getGender() {
