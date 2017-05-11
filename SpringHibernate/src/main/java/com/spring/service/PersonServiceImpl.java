@@ -28,7 +28,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public void updateEmployee(Person person) {
+	public void updatePerson(Person person) {
 		Person cus = personDao.findById(person.getId());
 		if(cus != null ){
 			cus.setName(person.getName());

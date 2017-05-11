@@ -23,9 +23,12 @@ public class PersonDaoImpl extends AbstractDao<Integer, Person> implements Perso
 
 	@Override
 	public void deletePerson(int id) {
-		Query query = getSession().createSQLQuery("delete from Employee where id = :id");
-        query.setLong("id", id);
-        query.executeUpdate();
+		Person person = findById(id);
+		try{
+			getSession().delete(person);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@SuppressWarnings("unchecked")

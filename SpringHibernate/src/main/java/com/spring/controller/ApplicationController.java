@@ -119,6 +119,7 @@ public class ApplicationController {
     public String formRequest(Model model) {
 		System.out.println("Arup Test In PersonController form.");
 		model.addAttribute("person", new Person());
+		model.addAttribute("edit", false);
 		return "person_form";
     }
 	
@@ -140,6 +141,44 @@ public class ApplicationController {
         System.out.println("persons  :  "+ persons.size());
         model.addAttribute("persons", persons);
         return "allperson";
+    }
+    
+    /**
+     * This method is a medium to update existing Person.
+     * @return view
+     */
+    @RequestMapping(value = { "/edit-{id}-person" }, method = RequestMethod.GET)
+    public String editPerson(@PathVariable int id, Model model){
+    	Person person = personService.findById(id);
+    	model.addAttribute("person", person);
+    	model.addAttribute("edit", true);
+		return "person_form";
+    }
+    /**
+     * This method calls on form submission of update person
+     * @param employee
+     * @param result
+     * @param model
+     * @param id
+     * @return view
+     */
+    @RequestMapping(value = { "/edit-{id}-person" }, method = RequestMethod.POST)
+    public String updatePerson(@Valid Person person, BindingResult result,
+            ModelMap model, @PathVariable int id) {
+ 
+        if (result.hasErrors()) {
+            return "person_form";
+        }
+        personService.updatePerson(person);
+        model.addAttribute("success", "Person " + person.getName()  + " updated successfully");
+        return "success";
+    }
+    
+    @RequestMapping(value = { "/delete-{id}-person" }, method = RequestMethod.GET)
+    public String deletePerson(@PathVariable int id){
+    	System.out.println("Person id : "+id+"\n Deleting Person...");
+    	personService.deletePerson(id);
+		return "redirect:/listPerson";
     }
 
 }

@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form"
 	prefix="springForm"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,7 +52,19 @@
 			<td><springForm:input path="birthday" placeholder="dd/MM/yyyy"/></td>
 			<td><springForm:errors path="birthday" cssClass="error"></springForm:errors></td>
 		</tr>
-		<tr><td colspan="3"><input type="submit" value="Save Person"></td></tr>
+		
+		<tr>
+				<td colspan="3">
+                    <c:choose>
+                        <c:when test="${edit}">
+                            <input type="submit" value="Update"/>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="submit" value="Register"/>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+         </tr>
 	</table>
 </springForm:form>
 </body>

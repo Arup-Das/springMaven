@@ -29,7 +29,8 @@
             <td>${person.phone}</td>
             <td>${person.gender}</td>
             <td>${person.birthday}</td>
-            <td><a href="<c:url value='/edit-${person.id}-person' />"><img alt="edit" src="${pageContext.request.contextPath}/images/edit.png"></a></td>
+            <td><a href="<c:url value='/edit-${person.id}-person' />"><img alt="edit" src='<c:url value = "/images/edit.png"/>' height="25" width="25"></a></td>
+            <td><a href="<c:url value='/delete-${person.id}-person' />"><img alt="delete" src='<c:url value = "/images/delete.png"/>' height="25" width="25"></a></td>
             </tr>
         </c:forEach>
     </table>
